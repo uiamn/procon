@@ -1,0 +1,3 @@
+[submodule "typical90"]
+	path = typical90
+	url = https://github.com/uiamn/typical90.git
