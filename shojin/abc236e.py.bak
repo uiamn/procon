@@ -1,0 +1,21 @@
+N = int(input())
+A = []
+
+for i in range(2*N - 1):
+    A.append([None for _ in range(i+1)] + list(map(int, input().split())))
+
+def fun(rest):
+    if len(rest) == 2:
+        return A[rest[0]][rest[1]]
+    else:
+        a = rest[0]
+        b = rest[1:]
+        ans = 0
+
+        for i in range(len(b)):
+            tmp = b[:i] + b[i+1:]
+            ans = max(ans, A[a][b[i]] ^ fun(tmp))
+
+        return ans
+
+print(fun(list(range(2*N))))
